@@ -121,10 +121,10 @@
         <h2>Array Operations</h2>
 
         <?php
-        $numbers = array(10, 5, 2, 8, 4, 6, 3, 9, 7, 1);
+        $numbers = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
         echo "<div class='array-section'>";
-        echo "<h3>Numbers</h3>";
+        echo "<h3>Array list: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10</h3>";
         echo "<div class='numbers'>";
         
         foreach($numbers as $num){
@@ -153,23 +153,23 @@
         echo "<div class='results'>";
         
         echo "<div class='result'>";
-        echo "<div class='result-label'>Sum</div>";
+        echo "<div class='result-label'>Addition</div>";
         echo "<div class='result-value'>" . $sum . "</div>";
         echo "</div>";
 
         echo "<div class='result'>";
-        echo "<div class='result-label'>Difference</div>";
+        echo "<div class='result-label'>Subtraction</div>";
         echo "<div class='result-value'>" . $difference . "</div>";
         echo "</div>";
 
         echo "<div class='result'>";
-        echo "<div class='result-label'>Product</div>";
+        echo "<div class='result-label'>Multiplication</div>";
         echo "<div class='result-value'>" . $product . "</div>";
         echo "</div>";
 
         echo "<div class='result'>";
-        echo "<div class='result-label'>Quotient</div>";
-        echo "<div class='result-value'>" . number_format($quotient, 4) . "</div>";
+        echo "<div class='result-label'>Division</div>";
+        echo "<div class='result-value'>" . str_replace('E-0', 'E-', sprintf('%.14E', $quotient)) . "</div>";
         echo "</div>";
         
         echo "</div>";
