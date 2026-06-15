@@ -1,3 +1,4 @@
+//getForm.php
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +17,206 @@
 
     <input type="submit" value="Submit">
 </form>
+
+</body>
+</html>
+
+//getResult.php
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GET Result</title>
+</head>
+<body>
+
+<h2>Personal Information</h2>
+
+<?php
+echo "First Name: " . $_GET['fname'] . "<br>";
+echo "Middle Name: " . $_GET['mname'] . "<br>";
+echo "Last Name: " . $_GET['lname'] . "<br>";
+echo "Date of Birth: " . $_GET['dob'] . "<br>";
+echo "Address: " . $_GET['address'] . "<br>";
+?>
+
+</body>
+</html>
+
+//postForm.php
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Information (POST)</title>
+</head>
+<body>
+
+<h2>Personal Information Form (POST)</h2>
+
+<form action="postResult.php" method="post">
+    First Name: <input type="text" name="fname"><br><br>
+    Middle Name: <input type="text" name="mname"><br><br>
+    Last Name: <input type="text" name="lname"><br><br>
+    Date of Birth: <input type="date" name="dob"><br><br>
+    Address: <input type="text" name="address"><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
+
+//postResult.php
+<!DOCTYPE html>
+<html>
+<head>
+    <title>POST Result</title>
+</head>
+<body>
+
+<h2>Personal Information</h2>
+
+<?php
+echo "First Name: " . $_POST['fname'] . "<br>";
+echo "Middle Name: " . $_POST['mname'] . "<br>";
+echo "Last Name: " . $_POST['lname'] . "<br>";
+echo "Date of Birth: " . $_POST['dob'] . "<br>";
+echo "Address: " . $_POST['address'] . "<br>";
+?>
+
+</body>
+</html>
+
+/*--------------------------------*/
+
+//Activity2
+//cookie.php
+<?php
+
+setcookie("fname", "Angelika", time()+10);
+setcookie("mname", "Marie", time()+20);
+setcookie("lname", "Santos", time()+30);
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cookies Example</title>
+</head>
+<body>
+
+<h2>Cookies Information</h2>
+
+<?php
+
+if(isset($_COOKIE['fname'])){
+    echo "First Name: " . $_COOKIE['fname'] . "<br>";
+}else{
+    echo "First Name Cookie not available yet.<br>";
+}
+
+if(isset($_COOKIE['mname'])){
+    echo "Middle Name: " . $_COOKIE['mname'] . "<br>";
+}else{
+    echo "Middle Name Cookie not available yet.<br>";
+}
+
+if(isset($_COOKIE['lname'])){
+    echo "Last Name: " . $_COOKIE['lname'] . "<br>";
+}else{
+    echo "Last Name Cookie not available yet.<br>";
+}
+
+?>
+
+</body>
+</html>
+
+/*--------------------------------*/
+
+//Act3
+//FavoriteColor.php
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favorite Colors</title>
+</head>
+<body>
+
+<h2>My 5 Favorite Colors</h2>
+
+<form action="ResultColors.php" method="post">
+
+Color 1:
+<input type="text" name="color1"><br><br>
+
+Color 2:
+<input type="text" name="color2"><br><br>
+
+Color 3:
+<input type="text" name="color3"><br><br>
+
+Color 4:
+<input type="text" name="color4"><br><br>
+
+Color 5:
+<input type="text" name="color5"><br><br>
+
+<input type="submit" value="Send Colors">
+
+</form>
+
+</body>
+</html>
+
+//ResultColor.php
+<?php
+session_start();
+
+$_SESSION['color1'] = $_POST['color1'];
+$_SESSION['color2'] = $_POST['color2'];
+$_SESSION['color3'] = $_POST['color3'];
+$_SESSION['color4'] = $_POST['color4'];
+$_SESSION['color5'] = $_POST['color5'];
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Favorite Colors Result</title>
+
+    <style>
+        body{
+            text-align:center;
+            font-family:Arial;
+        }
+
+        .box{
+            width:200px;
+            margin:auto;
+            padding:10px;
+            border:1px solid black;
+        }
+    </style>
+
+</head>
+<body>
+
+<h1>My Favorite Colors</h1>
+
+<div class="box">
+<?php
+echo $_SESSION['color1']."<br>";
+echo $_SESSION['color2']."<br>";
+echo $_SESSION['color3']."<br>";
+echo $_SESSION['color4']."<br>";
+echo $_SESSION['color5']."<br>";
+?>
+</div>
 
 </body>
 </html>
